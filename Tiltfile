@@ -1,9 +1,5 @@
 # -*- mode: Python -*-
 
-# Enforce a minimum Tilt version, so labels are supported
-# https://docs.tilt.dev/api.html#api.version_settings
-version_settings(constraint='>=0.22.1')
-
 docker_compose('docker-compose.yml')
 
 docker_build(
@@ -23,5 +19,5 @@ docker_build(
   ])
 
 # Add labels to Docker services
-dc_resource('redis', labels=["database"])
+dc_resource('cache', labels=["database"])
 dc_resource('app', labels=["server"])
